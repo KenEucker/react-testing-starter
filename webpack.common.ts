@@ -2,7 +2,7 @@
 import path from 'path'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 
-export default  {
+export default {
     entry: './src/index.tsx',
     output: {
         publicPath: '',
@@ -36,7 +36,7 @@ export default  {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: './index.html',
+            template: path.resolve(__dirname, 'static/index.html'),
         }),
     ],
 }

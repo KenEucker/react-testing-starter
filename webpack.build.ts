@@ -1,5 +1,5 @@
 import { merge } from 'webpack-merge'
-import { Configuration as WebpackDevServerConfiguration } from "webpack-dev-server"
+import { Configuration as WebpackDevServerConfiguration } from 'webpack-dev-server'
 import common from './webpack.common'
 import path from 'path'
 

@@ -1,2 +1,3 @@
 # react-testing-starter
-A starter repository for a React application with accompanying fronend tests, written entirely in typescript.
+
+A starter repository for a React application with accompanying frontend tests, written entirely in typescript.
