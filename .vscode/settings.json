@@ -1,0 +1,11 @@
+{
+    "git.enableSmartCommit": true,
+    "editor.renderWhitespace": "all",
+    "editor.insertSpaces": false,
+    "editor.detectIndentation": false,
+    "files.trimFinalNewlines": false,
+    "prettier.printWidth": 100,
+    "files.insertFinalNewline": true,
+    "prettier.semi": false,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+}
