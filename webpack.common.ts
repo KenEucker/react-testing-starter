@@ -1,6 +1,25 @@
 /* eslint-disable import/no-unresolved */
 import path from 'path'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
+import fs from 'fs'
+
+const indexTargetFilename = path.join(__dirname, 'static', 'index.html')
+if (!fs.existsSync(indexTargetFilename)) {
+	fs.writeFileSync(indexTargetFilename, `<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+	</head>
+	<body>
+		<noscript>
+			If you're seeing this message, that means
+			<strong>JavaScript has been disabled on your browser</strong>, please
+			<strong>enable JS</strong>.
+		</noscript>
+		<div id="root"></div>
+	</body>
+</html>`)
+}
 
 export default {
     entry: './src/index.tsx',
@@ -36,7 +55,7 @@ export default {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, 'static/index.html'),
+            template: indexTargetFilename,
         }),
     ],
 }
