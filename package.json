@@ -40,7 +40,7 @@
         "package": "npm run wipe && npm run clean && npx webpack --config webpack.production.js && copyfiles -u 1 \"static/**/*\" dist",
         "test": "npx jest",
         "fix": "npx jest -u",
-        "start": "npm run build && npx webpack serve --open --config webpack.build.ts",
+        "start": "npm run build && npx webpack serve --host 0.0.0.0 --open --config webpack.build.ts",
         "postinstall": "npm test"
     }
 }
