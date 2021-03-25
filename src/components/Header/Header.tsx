@@ -1,8 +1,35 @@
 // Header.js
-import React from 'react'
+import * as React from 'react'
+import { withStyles, WithStyles, createStyles } from '@material-ui/core'
+import { Theme } from '@material-ui/core'
 
-const Header = () => {
-    return <div className="Header">This is the header</div>
+const styles = (theme: Theme) =>
+    createStyles({
+        root: {
+            /* ... */
+        },
+        heading: {
+            color: 'red',
+        },
+    })
+
+interface HeaderProps extends WithStyles<typeof styles> {
+    heading?: string
 }
 
-export default Header
+class Header extends React.Component<HeaderProps, {}> {
+    constructor(props: HeaderProps) {
+        super(props)
+    }
+    render = () => {
+        const { classes, heading } = this.props
+
+        return (
+            <header className={classes.root}>
+                <h1 className={classes.heading}>{heading}</h1>
+            </header>
+        )
+    }
+}
+
+export default withStyles(styles)(Header)

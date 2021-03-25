@@ -1,17 +1,23 @@
 {
     "dependencies": {
+        "@material-ui/core": "^4.11.3",
         "react": "^17.0.1",
-        "react-dom": "^17.0.1"
+        "react-dom": "^17.0.1",
+        "react-router-dom": "^5.2.0"
     },
     "devDependencies": {
         "@babel/preset-env": "^7.13.10",
         "@babel/preset-typescript": "^7.13.0",
+        "@route-codegen/core": "^0.3.1",
+        "@route-codegen/react": "^0.1.1",
+        "@route-codegen/utils": "^0.1.2",
         "@testing-library/jest-dom": "^5.11.9",
         "@testing-library/react": "^11.2.5",
         "@types/jest": "^26.0.21",
         "@types/node": "^14.14.35",
         "@types/react": "^17.0.3",
         "@types/react-dom": "^17.0.2",
+        "@types/styled-components": "^5.1.9",
         "@types/webpack": "^4.41.26",
         "babel-jest": "^26.6.3",
         "copyfiles": "^2.4.1",
@@ -36,11 +42,12 @@
     "scripts": {
         "wipe": "npx rimraf dist",
         "clean": "npx prettier . --write",
+        "generate": "npx route-codegen",
         "build": "npx webpack --config webpack.build.ts && copyfiles -u 1 \"static/**/*\" dist",
         "package": "npm run wipe && npm run clean && npx webpack --config webpack.production.js && copyfiles -u 1 \"static/**/*\" dist",
         "test": "npx jest",
         "fix": "npx jest -u",
-        "start": "npm run build && npx webpack serve --host 0.0.0.0 --open --config webpack.build.ts",
+        "start": "npm run build && npx webpack serve --host 0.0.0.0 --public localhost:8080 --open --config webpack.build.ts",
         "postinstall": "npm test"
     }
 }

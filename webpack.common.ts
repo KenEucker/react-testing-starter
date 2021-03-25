@@ -5,7 +5,9 @@ import fs from 'fs'
 
 const indexTargetFilename = path.join(__dirname, 'static', 'index.html')
 if (!fs.existsSync(indexTargetFilename)) {
-	fs.writeFileSync(indexTargetFilename, `<!DOCTYPE html>
+    fs.writeFileSync(
+        indexTargetFilename,
+        `<!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
@@ -18,7 +20,8 @@ if (!fs.existsSync(indexTargetFilename)) {
 		</noscript>
 		<div id="root"></div>
 	</body>
-</html>`)
+</html>`,
+    )
 }
 
 export default {

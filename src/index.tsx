@@ -1,7 +1,20 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
-import App from './pages/index'
+import Index from './blocks/index'
+import { StylesProvider, MuiThemeProvider } from '@material-ui/core/styles'
+import CssBaseline from '@material-ui/core/CssBaseline'
+import theme from './theme'
 
 window.onload = () => {
-    ReactDOM.render(<App />, document.getElementById('root'))
+    ReactDOM.render(
+        <>
+            <CssBaseline />
+            <StylesProvider>
+                <MuiThemeProvider theme={theme}>
+                    <Index />
+                </MuiThemeProvider>
+            </StylesProvider>
+        </>,
+        document.getElementById('root'),
+    )
 }
