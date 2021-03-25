@@ -1,6 +1,7 @@
 {
     "dependencies": {
         "@material-ui/core": "^4.11.3",
+        "@material-ui/icons": "^4.11.2",
         "react": "^17.0.1",
         "react-dom": "^17.0.1",
         "react-router-dom": "^5.2.0"
@@ -43,11 +44,12 @@
         "wipe": "npx rimraf dist",
         "clean": "npx prettier . --write",
         "generate": "npx route-codegen",
-        "build": "npx webpack --config webpack.build.ts && copyfiles -u 1 \"static/**/*\" dist",
-        "package": "npm run wipe && npm run clean && npx webpack --config webpack.production.js && copyfiles -u 1 \"static/**/*\" dist",
+		"copy": "copyfiles -u 1 \"static/**/*\" dist",
+        "build": "npx webpack --config webpack.build.ts && npm run copy",
+        "package": "npm run wipe && npm run clean && npx webpack --config webpack.production.js && npm run copy",
         "test": "npx jest",
         "fix": "npx jest -u",
-        "start": "npm run build && npx webpack serve --host 0.0.0.0 --public localhost:8080 --open --config webpack.build.ts",
+        "start": "npm run copy && npx webpack serve --host 0.0.0.0 --public localhost:8080 --open --config webpack.build.ts",
         "postinstall": "npm test"
     }
 }
